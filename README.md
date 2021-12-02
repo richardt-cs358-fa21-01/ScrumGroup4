@@ -4,6 +4,8 @@ This is the readme for the group
 # Help
 Installing VS Code: https://liveuwstout-my.sharepoint.com/:w:/g/personal/youngj2304_my_uwstout_edu/EWTeepPrd_JOtOXKcY7goUsBiRruaSBJWI24y2vCFJeUAw 
 
+Live server plugin for VSCode: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
 # Coding Standards
 1. The commit and Pull system 
 
