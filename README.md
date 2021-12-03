@@ -6,6 +6,8 @@ Installing VS Code: https://liveuwstout-my.sharepoint.com/:w:/g/personal/youngj2
 
 Live server plugin for VSCode: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
 
+Installing and connecting MySQL: https://liveuwstout-my.sharepoint.com/:w:/g/personal/youngj2304_my_uwstout_edu/EYJPhDUetU1MnabUjXqUMQABBZnSxP3qHm1CQGRK7RwpJg?e=f2QVxr
+
 # Coding Standards
 1. The commit and Pull system 
 
