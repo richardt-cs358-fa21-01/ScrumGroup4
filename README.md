@@ -8,6 +8,8 @@ Live server plugin for VSCode: https://marketplace.visualstudio.com/items?itemNa
 
 Installing and connecting MySQL: https://liveuwstout-my.sharepoint.com/:w:/g/personal/youngj2304_my_uwstout_edu/EYJPhDUetU1MnabUjXqUMQABBZnSxP3qHm1CQGRK7RwpJg?e=f2QVxr
 
+Bootstrap Documentation: https://getbootstrap.com/docs/5.1/getting-started/introduction/
+
 # Coding Standards
 1. The commit and Pull system 
 
