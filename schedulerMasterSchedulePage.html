@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="homePage.css">
+        <link rel="stylesheet" type="text/css" href="schedulerMasterSchedule.css">
     </head>
     <body>
-        <h1>Master Schedule Creation</h1>
-        
-        <button onclick="window.location.href='schedulerLabSchedule.html';" class = "button">
-            Create Lab Schedule
-          </button>
-          <button onclick="window.location.href='schedulerViewSchedule.html';" class = "button">
-            View and Export Schedule
-          </button>
-          <button onclick="window.location.href='schedulerMasterSchedulePage.html';" class = "button">
-            Create Master Schedule
-          </button><br>
-          <a href="schedulerHome.html">Back to Scheduler Home Page</a>
+        <h1>Master Schedule Creation</h1>      
+        <table>
+            <tr>
+                <th>All Courses</th>
+            </tr>
+            <tr>
+                <th>Filled (Y/N)</th>
+                <th>Course ID</th>
+                <th>Course Days</th>
+                <th>Course Times</th>
+                <th>Taught By</th>
+                <th>Assign SI</th>
+            </tr>
+            <tr>
+                <td>N</td>
+                <td>CS 141</td>
+                <td>MonWedFri</td>
+                <td>9:05-10:00</td>
+                <td>Dr. Tetzlaff</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>N</td>
+                <td>CS 142</td>
+                <td>TueThu</td>
+                <td>10:10-11:05</td>
+                <td>Dr. Thomas</td>
+                <td><select name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select></td>
+            </tr>
+            <tr>
+                <td>Y</td>
+                <td>CS 144</td>
+                <td>MonWedFri</td>
+                <td>11:15-12:10</td>
+                <td>Dr. Richardt</td>
+                <td><input type="text" disabled></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit"><br>
+        <a href="schedulerHome.html">Back to Scheduler Home Page</a>
+
     </body>
 </html>
