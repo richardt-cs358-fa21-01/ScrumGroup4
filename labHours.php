@@ -46,6 +46,13 @@ $stmt->execute([
 ':labTime' => $lHour,
 ]);
 
+echo("\n Lab ID: ");
+echo($labID+1);
+echo("Lab Days: ");
+echo($lDays);
+echo("Lab Time: ");
+echo($lHour);
+
 }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
