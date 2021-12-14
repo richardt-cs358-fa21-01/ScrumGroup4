@@ -1,44 +1,55 @@
-<!-- php
-$servername = "localhost";
-$username = "user4    ";
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Adding Lab Hours</title>
+</head>
+<body>
+<?php
+
+$servername = "143.198.123.91:3306";
+$database = "AgileExpG4";
+$username = "user4";
 $password = "userpwd4";
-$dbname = "AgileExpG4";
 
 try {
-
-    $newDiverName = $_POST['diverName'];
-
-
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("INSERT INTO Diver (FullName) VALUES ( :diverName );");
-    $stmt->bindParam(':diverName', $newDiverName, PDO::PARAM_STR, strlen($newDiverName));
-
-    $stmt->execute();
-
-#  }
+$conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+echo ("Connected successfully\n");
+} catch (PDOException $e) {
+die("error, please try again");
 }
-catch(PDOException $e) {
+
+
+
+try {
+// Connect to SQL and send error message if needed
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//Check if there is data for hours and days
+$lDays="";
+if (isset($_POST['labHours']) && isset($_POST['labDays'])){
+  $lHour = $_POST["labHours"];
+  foreach($_POST['labDays'] as $lDays1){
+	$lDays .= $lDays1.", ";
+	}
+
+$q = $conn->query("SELECT labID FROM LabHours ORDER BY labID DESC LIMIT 1");
+$labID = $q->fetchColumn();
+
+$sql = "INSERT INTO LabHours (labID, labDay, labTime) VALUES (:labID, :labDay, :labTime)";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->execute([
+':labID' => $labID+1,
+':labDay' => $lDays,
+':labTime' => $lHour,
+]);
+
+}
+} catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
-$conn = null;
-header('Location: diver.html');
-
-
-?> -->
-<?php
-$servername = "localhost";
-$username = "user4    ";
-$password = "userpwd4";
-$dbname = "AgileExpG4";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if($conn->connect_error){
-  die("Connection failed: " . $conn->connect_error);
-}
-
-echo "Connected successfully";
-mysqli_close($conn);
-
 ?>
+</body>
+</html>
