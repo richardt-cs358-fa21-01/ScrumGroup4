@@ -6,7 +6,6 @@
         max-width: 330px;
         padding: 15px;
         margin: auto;
-
     }
 
     form {
@@ -38,23 +37,34 @@
     if (!$conn) {
         die("Connection Failed! " . mysqli_connect_error());
     }
+    echo $_POST["courseId"], "  ";
+    echo $_POST["professorId"], "  ";
+    echo $_POST["startTime"], "  ";
+    echo $_POST["duration"], "  ";
+    echo $_POST["semesters"], "  ";
+    echo $_POST["years"], "  ";
+    echo $_POST["studentId"], "  ";
+    echo $_POST["days"], " ";
+
+
     if (
-        $_POST["courseId"] && $_POST["courseName"] && $_POST["timeStartId"] && $_POST["timeEndId"] &&
-        $_POST["semesters"] && $_POST["years"] &&  $_POST["textSI"]
+        $_POST["courseId"] && $_POST["professorId"] && $_POST["startTime"] && $_POST["duration"] &&
+        $_POST["semesters"] && $_POST["years"] && !is_null($_POST["studentId"]) && $_POST["days"]
     ) {
         //variables from the previous page
         $gCourseId = $_POST["courseId"];
-        $gCourseName = $_POST["courseName"];
+        $gCourseName = $_POST["professorId"];
         $gTimeStart = $_POST["timeStartId"];
-        $gTimeEnd = $_POST['timeEndId'];
+        $gTimeEnd = $_POST['duration'];
         $gSemesters = $_POST["semesters"];
         $gYears = $_POST["years"];
-        $gTextSI = $_POST["textSI"];
+        $gTextSI = $_POST["studentId"];
+        $gDays = $_POST["days"];
 
 
         //add the item to the database
-        $sql = "INSERT INTO Courses (courseID, courseDays, courseTimes, courseSemester, courseProfID, courseStuID, courseLength) 
-        VALUES ('courseId', 'courseName', 'timeStartId', 'timeEndId', 'semesters', 'years', 'textSI')";
+        $sql = "INSERT INTO Courses (courseID, /*courseDays,*/ courseTimes, courseSemester, courseProfID, courseStuID, courseLength) 
+        VALUES ('courseId', /*'days',*/ 'timeStartId', 'semesters', 'professorId', ''studentId', 'duration')";
         //$sql = "INSERT INTO Games (gameName, gameGenre, gameRating, gameBeaten) VALUES ('$gName', '$gGenre', '$gRating','$gBeaten')";
 
         if ($conn->query($sql) === TRUE) {

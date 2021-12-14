@@ -1,11 +1,11 @@
 function submitForm() {
     var fCourseID = document.getElementById("courseId");
-    var fCourseName = document.getElementById("courseName");
-    var fStartTime = document.getElementById("timeStartId");
-    var fEndTime = document.getElementById("timeEndId");
-    var fSemesters = document.getElementById("semesters")
+    var fProfessorId = document.getElementById("professorId");
+    var fduration = document.getElementById("duration");
+    var fStartTime = document.getElementById("startTime")
+    var fSemesters = document.getElementById("semesters");
     var fYears = document.getElementById("years");
-    var fPreference = document.getElementById("textSI");
+    var fStudentId = document.getElementById("studentId");
     var courseForm = document.forms["professorForm"];
 
     var fdays = document.getElementsByClassName("days");
@@ -21,17 +21,14 @@ function submitForm() {
     if (!fCourseID.value) {
         alert("Please enter a valid Course id!")
     }
-    else if (!fCourseName.value) {
-        alert("Please enter a course name!")
+    else if (!fProfessorId.value) {
+        alert("Please enter a professor Id!")
     }
     else if (!fStartTime.value) {
-        alert("Please enter a course start time!");
+        alert("Please enter a start time for the course!");
     }
-    else if (!fEndTime.value) {
-        alert("Please enter a course end time!");
-    }
-    else if (fStartTime.value == fEndTime.value) {
-        alert("Please ensure that your start and end time are not the same!");
+    else if (!fduration.value) {
+        alert("Please enter a course duration!");
     }
     else if (!fSemesters.value || fSemesters.value == "select") {
         alert("Please enter a semester for the course!");
@@ -39,8 +36,8 @@ function submitForm() {
     else if (!fYears.value || fYears.value.length < 4) {
         alert("Please enter a year for the course! Make sure the year is at least 4 characters long!");
     }
-    else if (!fPreference.value) {
-        alert("Please enter a name for an SI or put none for no one!")
+    else if (!fStudentId.value) {
+        alert("Please enter an id for the student!")
     }
     else if (noDaysSelected.value == true) {
         alert("Please select at least one day for your course!")

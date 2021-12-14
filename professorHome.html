@@ -6,7 +6,6 @@
         max-width: 330px;
         padding: 15px;
         margin: auto;
-
     }
 
     form {
@@ -54,35 +53,36 @@
             </div>
         </nav>
 
-
         <form name="professorForm" action="professorHome.php" method="post">
             <h1>Professor Home Page</h1>
             <div class="form-group">
                 <label for="courseId" id="courseIdLabel">Course ID:</label>
-                <input type="number" class="form-control" id="courseId">
+                <input type="number" class="form-control" id="courseId" name="courseId">
             </div>
             <div class="form-group">
-                <label for="courseName" id="courseNameLabel">Course Name:</label>
-                <input type="text" class="form-control" id="courseName">
+                <label for="professorId" id="professorIdLabel">Professor ID:</label>
+                <input type="number" class="form-control" id="professorId" name="professorId">
+            </div>
+            <div class="form-group">
                 <h5>Days of the week: </h5>
                 <div class="checkbox">
-                    <label><input type="checkbox" value="" class="days">Monday</label>
-                    <label><input type="checkbox" value="" class="days">Tuesday</label>
-                    <label><input type="checkbox" value="" class="days">Wednesday</label>
-                    <label><input type="checkbox" value="" class="days">Thursday</label>
-                    <label><input type="checkbox" value="" class="days">Friday</label>
+                    <label><input type="checkbox" value="mon" class="days" name="days[monday]">Monday</label>
+                    <label><input type="checkbox" value="tue" class="days" name="days[tuesday]">Tuesday</label>
+                    <label><input type="checkbox" value="wed" class="days" name="days[wednesday]">Wednesday</label>
+                    <label><input type="checkbox" value="thu" class="days" name="days[thursday]">Thursday</label>
+                    <label><input type="checkbox" value="fri" class="days" name="days[friday]">Friday</label>
                 </div>
                 <div>
                     <label>Enter the start time: </label>
-                    <input type="time" id="timeStartId"></input>
+                    <input type="time" id="startTime" name="startTime"></input>
                 </div>
                 <div>
-                    <label>Enter the end time: </label>
-                    <input type="time" id="timeEndId"></input>
+                    <label>Enter the class duration: </label>
+                    <input type="number" id="duration" name="duration"></input>
                 </div>
                 <div>
                     <label for="semesters">Choose a semester</label>
-                    <select name="semesters" id="semesters">
+                    <select name="semesters" id="semesters" name="semesters">
                         <option value="select">Select</option>
                         <option value="fall">Fall</option>
                         <option value="winter">Winter</option>
@@ -94,26 +94,20 @@
                     </select>
                 </div>
                 <div>
-                    <label for="preferences">Enter a preference for an SI (leave as none if you don't want one) </label>
-                    <input type="text" value="none" id="textSI">
+                    <label for="preferences">Enter a student Id if you have a preference for a student (leave as 0 if
+                        you don't want one) </label>
+                    <input type="number" value=0 id="studentId" name="studentId">
                 </div>
-
-
                 <button type="button" class="btn-success" onclick="submitForm()">Submit</button>
                 <button type="submit" class="btn-danger">Reset</button>
 
-
         </form>
-
-
-
 
         <div>
             <a href="logout.php" class="btn btn-primary">Logout</a>
 
         </div>
     </div>
-
 
     <!-- Bootstrap Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -124,6 +118,5 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
-
 
 </html>
