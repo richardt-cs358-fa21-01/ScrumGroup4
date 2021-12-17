@@ -48,15 +48,18 @@ $stmt->execute([
 
 echo("\n Lab ID: ");
 echo($labID+1);
-echo("Lab Days: ");
+echo(" Lab Days: ");
 echo($lDays);
 echo("Lab Time: ");
 echo($lHour);
-
 }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
 ?>
+<br>
+            <button onclick="window.location.href='schedulerLabSchedule.html';">
+            Back
+            </button><br>
 </body>
 </html>
