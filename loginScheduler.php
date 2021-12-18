@@ -8,7 +8,7 @@ session_start();
 <head>
 
 
-   <title>Student Login Page</title>
+   <title>Scheduler Login Page</title>
    <link href="css/bootstrap.min.css" rel="stylesheet">
 
    <style>
@@ -89,7 +89,7 @@ session_start();
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-         <a class="navbar-brand" href="/homePage.html">Home</a>
+         <a class="navbar-brand" href="homePage.html">Home</a>
 
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -103,13 +103,13 @@ session_start();
 
                <li class="nav-item active">
 
-                  <a class="nav-link" href="/loginProfessor.php">Professor</a>
+                  <a class="nav-link" href="loginStudent.php">Student</a>
 
                </li>
 
                <li class="nav-item">
 
-                  <a class="nav-link" href="/loginScheduler.php">Scheduler</a>
+                  <a class="nav-link" href="loginProfessor.php">Professor</a>
 
                </li>
 
@@ -119,7 +119,7 @@ session_start();
 
       </nav>
 
-      <h2>Student Login</h2>
+      <h2>Scheduler Login </h2>
       <div class="container form-signin">
 
          <?php
@@ -154,11 +154,11 @@ session_start();
             <input type="text" class="form-control" name="username" placeholder="Username = E-mail" required autofocus></br>
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <div>
-               <a href="/Student/studentHome.html" class="btn btn-primary">Login</a>
+               <a href="schedulerHome.html" class="btn btn-primary">Login</a>
             </div>
          </form>
          <div>
-            <a href="/logout.php" class="btn btn-primary">Close the system</a>
+            <a href="logout.php" class="btn btn-primary">Close the system</a>
          </div>
 
       </div>
