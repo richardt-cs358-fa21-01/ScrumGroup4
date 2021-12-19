@@ -51,12 +51,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="conflictSubmitForm" method="post" action="postConflict.php">
+                <form id="conflictSubmitForm" method="POST" action="postConflict.php">
                   <div class="row">
                     <div class="col">
                       <h4>Conflict Name</h4>
                       <div class="mb-2">
-                        <input class="form-control" id="conflictTitle" placeholder="eg. Hockey Practice">
+                        <input class="form-control" id="conflictTitle" placeholder="eg. Hockey Practice"
+                          name="conflictTitle">
                       </div>
                     </div>
                   </div>
@@ -64,10 +65,11 @@
                     <div class="col">
                       <h4>Type</h4>
                       <div class="mb-2">
-                        <select class="form-select" aria-label="Default select example" id="conflictType">
+                        <select class="form-select" aria-label="Default select example" id="conflictType"
+                          name="conflictType">
                           <option selected>Choose Conflict Type</option>
-                          <option value="1">Personal</option>
-                          <option value="2">Courses</option>
+                          <option value="Personal">Personal</option>
+                          <option value="Courses">Courses</option>
                         </select>
                       </div>
                     </div>
@@ -76,31 +78,33 @@
                     <div class="col">
                       <h4>Days</h4>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="mondayClass">
+                        <input class="form-check-input" type="checkbox" value="" id="mondayClass" name="mondayClass">
                         <label class="form-check-label" for="mondayClass">
                           Monday
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="tuesdayClass">
+                        <input class="form-check-input" type="checkbox" value="" id="tuesdayClass" name="tuesdayClass">
                         <label class="form-check-label" for="tuesdayClass">
                           Tuesday
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="wednesdayClass">
+                        <input class="form-check-input" type="checkbox" value="" id="wednesdayClass"
+                          name="wednesdayClass">
                         <label class="form-check-label" for="wednesdayClass">
                           Wednesday
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="thursdayClass">
+                        <input class="form-check-input" type="checkbox" value="" id="thursdayClass"
+                          name="thursdayClass">
                         <label class="form-check-label" for="thursdayClass">
                           Thursday
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="fridayClass">
+                        <input class="form-check-input" type="checkbox" value="" id="fridayClass" name="fridayClass">
                         <label class="form-check-label" for="fridayClass">
                           Friday
                         </label>
@@ -110,11 +114,11 @@
                       <h4>Time</h4>
                       <div class="mb-2">
                         <label for="startTime" class="form-label">Start Time</label>
-                        <input class="form-control" id="startTime" placeholder="10:00 AM">
+                        <input class="form-control" id="startTime" placeholder="10:00 AM" name="startTime">
                       </div>
                       <div class="mb-2">
                         <label for="endTime" class="form-label">End Time</label>
-                        <input class="form-control" id="endTime" placeholder="10:55 AM">
+                        <input class="form-control" id="endTime" placeholder="10:55 AM" name="endTime">
                       </div>
                     </div>
                   </div>
@@ -122,7 +126,8 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" form="conflictSubmitForm" class="btn btn-primary">Save</button>
+                <button type="submit" form="conflictSubmitForm" class="btn btn-primary"
+                  name="conflictSubmitForm">Save</button>
               </div>
             </div>
           </div>

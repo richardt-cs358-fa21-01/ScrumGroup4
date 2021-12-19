@@ -43,9 +43,13 @@ $username = "admin4";
 $password = "pocket4lion";
 $dbname = "AgileExpG4";
 
-foreach($_POST as $key => $val) {
-    echo $val . " ";
+echo "This is a test: <script>";
+foreach ($_POST as $val) {
+  echo "console.log('" . $_POST . "');";
 }
+echo "</script><br />";
+
+echo $_POST["mondayClass"], " ";
 
 $query = "INSERT INTO Conflicts (conflictDays, conflictStartTime, conflictEndTime, conflictType, conflictName, studentID)
           VALUES ('Mon Tue Wed Thurs Fri', '10:10 AM', '11:05 AM', 'Personal', 'Hockey Practice', '0705516');";
@@ -58,7 +62,6 @@ try {
 
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    echo $result;
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
