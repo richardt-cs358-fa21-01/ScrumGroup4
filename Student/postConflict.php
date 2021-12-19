@@ -36,23 +36,31 @@
       </div>
     </nav>
     <?php
-echo "<h1>BING CHILLING " . "</h1>";
 
 $servername = "143.198.123.91:3306";
 $username = "admin4";
 $password = "pocket4lion";
 $dbname = "AgileExpG4";
 
-echo "This is a test: <script>";
-foreach ($_POST as $val) {
-  echo "console.log('" . $_POST . "');";
+$conflictDays = "";
+if (array_key_exists('mondayClass', $_POST)) {
+  $conflictDays = $conflictDays . "Mon ";
 }
-echo "</script><br />";
-
-echo $_POST["mondayClass"], " ";
+if (array_key_exists('tuesdayClass', $_POST)) {
+  $conflictDays = $conflictDays . "Tue ";
+}
+if (array_key_exists('wednesdayClass', $_POST)) {
+  $conflictDays = $conflictDays . "Wed ";
+}
+if (array_key_exists('thursdayClass', $_POST)) {
+  $conflictDays = $conflictDays . "Thurs ";
+}
+if (array_key_exists('fridayClass', $_POST)) {
+  $conflictDays = $conflictDays . "Fri ";
+}
 
 $query = "INSERT INTO Conflicts (conflictDays, conflictStartTime, conflictEndTime, conflictType, conflictName, studentID)
-          VALUES ('Mon Tue Wed Thurs Fri', '10:10 AM', '11:05 AM', 'Personal', 'Hockey Practice', '0705516');";
+          VALUES ('".$conflictDays."', '".$_POST['startTime']."', '".$_POST['endTime']."', '".$_POST['conflictType']."', '".$_POST['conflictTitle']."', 'unknown');";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -62,9 +70,18 @@ try {
 
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+    echo "
+    <script>
+    alert('Successfully added Conflict!');
+      location.href = '/Student/studentHome.html';
+    </script>
+    ";
 }
 catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
+  echo "<h2>An Error has occurred</h2>";
+  echo "Error: " . $e->getMessage();
+  echo "<br /><a class='btn' href='/Student/studentHome.html'>Back to Student Page</a>";
 }
 $conn = null;
 ?>
