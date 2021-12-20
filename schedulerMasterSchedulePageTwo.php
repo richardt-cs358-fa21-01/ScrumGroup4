@@ -56,7 +56,7 @@
             $username = "user4";
             $password = "userpwd4";
             try {$conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-                echo ("Connected successfully ish\n");} 
+                echo ("Connected successfully\n");} 
                 catch (PDOException $e) 
                 {die("error, please try again");}
             $conn = mysqli_connect($servername, $username, $password, $database);
@@ -72,11 +72,28 @@
                 echo "<td>".$row[0]."</td>";
                 echo "<td>".$row[1]."</td>";
                 echo "<td>".$row[2]."</td>";
-                echo "<td>".$row[4]."</td>";
-                echo "</tr>";
+                $profID = $row[4];
+                $newQuery = mysqli_query($conn, "SELECT professorName FROM Professors WHERE professorID = $profID");
+                $professorInfo = mysqli_fetch_array($newQuery);
+                echo "<td>".$professorInfo[0]."</td>";
+                ?>
+                <td>
+                <select>
+                    <option selected = "selected">Choose a SI</option>
+                    <?php 
+                    $newQueryTwo = mysqli_query($conn, "SELECT * FROM Students WHERE isAssigned = 1");
+                    while($newRow = mysqli_fetch_array($newQueryTwo)){
+                        echo "<option value='strtolower($newRow[1])'>$newRow[1]</option>";
+                    }
+                    ?>
+                </select>
+                </td>
+                </tr>";
+                <?php
             }
-            
             ?>
+            
+            
             <!--
             <tr>
                 <td>N</td>
