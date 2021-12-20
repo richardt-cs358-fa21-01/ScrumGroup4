@@ -12,7 +12,7 @@ $database = "AgileExpG4";
 $username = "user4";
 $password = "userpwd4";
 try {$conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-    echo ("Connected successfully\n");} 
+    echo ("Connected successfully ish\n");} 
     catch (PDOException $e) 
     {die("error, please try again");}
     
@@ -28,10 +28,10 @@ try {$conn = new PDO("mysql:host=$servername;dbname=$database", $username, $pass
             $lDays .= $lDays1.", ";
             }
         
-        $q = $conn->query("SELECT labID FROM LabHours ORDER BY labID DESC LIMIT 1");
-        $labID = $q->fetchColumn();
+        $q = $conn->query("SELECT courseID, courseDays, courseProfID FROM Courses WHERE courseStudID <> null");
+        $courses = $q->fetchColumn();
         
-        $sql = "INSERT INTO LabHours (labID, labDay, labTime) VALUES (:labID, :labDay, :labTime)";
+        //$sql = "INSERT INTO LabHours (labID, labDay, labTime) VALUES (:labID, :labDay, :labTime)";
         
         $stmt = $conn->prepare($sql);
         

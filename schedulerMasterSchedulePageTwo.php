@@ -50,7 +50,34 @@
                 <th>Taught By</th>
                 <th>Assign SI</th>
             </tr>
+            <?php
+            $servername = "143.198.123.91:3306";
+            $database = "AgileExpG4";
+            $username = "user4";
+            $password = "userpwd4";
+            try {$conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+                echo ("Connected successfully ish\n");} 
+                catch (PDOException $e) 
+                {die("error, please try again");}
+            $conn = mysqli_connect($servername, $username, $password, $database);
+            $q = mysqli_query($conn, "SELECT * FROM Courses");
+            //$courses = $q->fetchColumn();
+            while($row = mysqli_fetch_array($q)) {
+                echo "<tr>";
+                if($row[5] != null){
+                    echo "<td>"."Y"."</td>";
+                } else {
+                    echo "<td>"."N"."</td>";
+                }
+                echo "<td>".$row[0]."</td>";
+                echo "<td>".$row[1]."</td>";
+                echo "<td>".$row[2]."</td>";
+                echo "<td>".$row[4]."</td>";
+                echo "</tr>";
+            }
             
+            ?>
+            <!--
             <tr>
                 <td>N</td>
                 <td>CS 141</td>
@@ -89,7 +116,7 @@
                     <option value="joel">Joel</option>
                     <option value="nick">Nick</option>
                   </select></td>
-            </tr>
+            </tr> -->
             
         </table>
         <h2>Select Student</h2>
