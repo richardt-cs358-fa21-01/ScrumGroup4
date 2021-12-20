@@ -17,4 +17,7 @@
     text-align: center;
   }
 
+  table, th, td {
+      border: 3px double #264faf
+  }
     
